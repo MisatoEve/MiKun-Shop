@@ -1,0 +1,42 @@
+.Item {
+    text-align: center;
+}
+.card img{
+    width: 80%;
+}
+.card {
+    align-items: center;
+    height: 100%;
+    margin: 2rem;
+    padding: 0.5rem;
+}
+.precioCard{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+.content{
+    padding: 1rem;
+    font-size: 1rem;
+
+}
+.content button{
+    padding: 0.5rem;
+    text-decoration: none;
+    color: gray;
+    border: 1px black solid;
+    border-radius: 20%;
+    color: white;
+    background-color: black;
+
+    font-size: 1.25rem;
+
+}
+.content p{
+    padding: 0.25rem;
+}
+.content button:hover{
+    color:red;
+    height: 200%;
+    
+}

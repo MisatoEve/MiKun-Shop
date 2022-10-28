@@ -1,0 +1,31 @@
+.cart__count {
+    width: auto;
+    padding: 12px;
+    right: 70px;
+    top: 50px;
+    height: 2.4rem;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 50%;
+    font-weight: 700;
+    color: white;
+    flex: none;
+    display: flex;
+    order: 1;
+    align-self: center;
+    align-content: center;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border: none;
+    border-style: none;
+    cursor: pointer;
+    outline: inherit;
+    font-size: medium;
+}
+.cart-img {
+    margin-right: 1rem;
+    font-size: 1em;
+}
+

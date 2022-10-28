@@ -1,0 +1,115 @@
+/* ▼Estilos Header */ 
+.header {
+    background-color: #000405;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem; 
+}
+.header__titulo {
+    color: #aec3b0;
+    font-size: 5em;
+    font-family: "Varela Round", sans-serif;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to top, #f1f2b5, #135058);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: none;
+}
+.header__menu {
+    list-style-type: none;
+    text-decoration: none;
+    color: #77a47b;
+    background-color: #000405; 
+}
+.header__nava {
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%; 
+}
+.header__nav--li {
+    padding: .45rem;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    font-size: 1.7em; 
+}
+.header__nav--li:hover {
+background: #006FCD;
+border-radius: 5%; 
+color: white;
+}
+.NavBar {
+    display: flex;
+    background: transparent;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    background: wheat;
+  }
+  
+  .Categories {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .Option {
+    /* color: #8C30F5; */
+    text-decoration: none;
+    border-radius: 5;
+    margin: 0 20px;
+    /* TODO */
+    width: auto;
+    padding: 12px;
+    font-size: 1.2em;
+    background: #77a47b;
+    border-radius: 8px;
+    flex: none;
+    display: flex;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    border: none;
+    border-style: none;
+    cursor: pointer;
+    outline: inherit;
+  }
+  
+  .ActiveOption {
+    /* color: #8C30F5; */
+    text-decoration: none;
+    border-radius: 5;
+    margin: 0 30px;
+    /* TODO */
+    width: auto;
+    padding: 10px;
+    font-size: 1.4em;
+    background:  #006FCD;
+    border-radius: 8px;
+    flex: none;
+    display: flex;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    border: none;
+    border-style: none;
+    cursor: pointer;
+    outline: inherit;
+  }
+  
+  .NavLink {
+    color :rgb(255, 0, 0)
+  }

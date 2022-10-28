@@ -1,0 +1,4 @@
+.ListIt {
+    display: flex;
+    flex-direction: column;
+}
