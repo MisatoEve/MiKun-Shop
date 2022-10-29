@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react"
-import { getProductById } from "../asyncMock"
+//▼reemplazamos funcionalidad del asynmock por firebase
+//import { getProductById } from "../asyncMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
 import './ItemDetailContainer.css'
+//▼consultamos solo un documentos de la colección -getDoc en singular- aquí usaremos el id
+import { getDoc, doc } from "firebase/firestore"
+//▲para acceder a un documento -no a la colección- importo la función doc para crear la referencia
+import { db } from "../../services/firebase"
 
 //const ItemDetailContainer = ({ addItem }) => {
 const ItemDetailContainer = ({ setCart }) => {
@@ -14,11 +19,28 @@ const ItemDetailContainer = ({ setCart }) => {
     //console.log(param)
 
     useEffect(() =>{
-        getProductById(productId).then(product => {
-            setProduct(product)
+
+        const docRef = doc(db, 'products', productId)
+
+        getDoc(docRef).then(doc => {
+            const data = doc.data()
+
+            const productAdapted = { id: doc.id, ...data }
+
+            setProduct(productAdapted)
+        }).catch(error => {
+            console.log(error)
         }).finally(() => {
             setLoading(false)
         })
+
+//línea quitada para reemplazar asyncMock▼
+//        getProductById(productId).then(product => {
+//            setProduct(product)
+//        }).finally(() => {
+//            setLoading(false)
+//        })
+//línea quitada para reemplazar asyncMock▲
     }, [productId])
 
     console.log(product)

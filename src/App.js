@@ -31,7 +31,7 @@ function App() {
               <Navbar />
               <Routes>
                 <Route path='/' element={<ItemListContainer  greeting={'Estos son nuestros productos disponibles!! ^^'}/>} />
-                <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Listado filtrado'}/>} />
+                <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Listado filtrado de caterogía:'}/>} />
                 <Route path='/detail/:productId' element={<ItemDetailContainer /*setCart={addItem}*/ />} /> 
                 {/*<Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
