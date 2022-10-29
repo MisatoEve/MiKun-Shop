@@ -58,7 +58,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 
 //    const value = useContext(CartContext)
 //    console.log(value)
-    const { addItem } = useContext(CartContext)
+    const { addItem, getProductQuantity } = useContext(CartContext)
     const { setNotification } = useContext(NotificationContext)
 
 //    console.log(quantityToAdd)
@@ -80,6 +80,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 //    const Count = inputType === 'button' ? ButtonCount : InputCount
 
 //    const productQuantity = getProductQuantity(id)
+    const productAddedQuantity = getProductQuantity(id)
 
     return (
         <article className="CardItem">
@@ -108,7 +109,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                     quantityToAdd === 0 ? (
 //                      <ItemCount onAdd={handleOnAdd} stock={stock} initial={productQuantity}/>                        
 //                        <Count onConfirm={handleOnAdd} stock={stock} />
-                        <ItemCount onAdd={handleOnAdd} stock={stock} />
+                        <ItemCount onAdd={handleOnAdd} stock={stock} initial={productAddedQuantity} />
                     ) : (
                         <Link to='/cart'>Finalizar compra</Link>
                     )

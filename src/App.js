@@ -8,6 +8,7 @@ import { NotificationProvider } from './notification/Notification';
 import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Cart from './components/Cart/Cart'
 //import Login from './components/User/login/Login';
 //import Register from './components/User/register/Register';
 //import { Checkout } from './components/Checkout/Checkout';
@@ -33,6 +34,7 @@ function App() {
                 <Route path='/' element={<ItemListContainer  greeting={'Estos son nuestros productos disponibles!! ^^'}/>} />
                 <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Listado filtrado de caterogía:'}/>} />
                 <Route path='/detail/:productId' element={<ItemDetailContainer /*setCart={addItem}*/ />} /> 
+                <Route path="/cart" element={<Cart />} />
                 {/*<Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/checkout" element={<Checkout />} /> */}  
