@@ -51,7 +51,7 @@ function App() {
 
   return (
     <div className="App">
-      <NotificationProvider>
+      {/*<NotificationProvider>
   {/*      <CartContext.Provider value={{ addItem, removeItem }}> */}
   {/*      <Context.Provider value={{ value1: 'valor a compartir', value2: 'otro'}}> */}
         <CartContextProvider>
@@ -70,7 +70,7 @@ function App() {
             <Footer />   
           </BrowserRouter>
         </CartContextProvider>
-      </NotificationProvider>
+      {/*</NotificationProvider>
 {/*      </CartContext.Provider> */}
         {/* <header className="App-header">*/}
           {/* <img src={logo} className="App-logo" alt="logo" />

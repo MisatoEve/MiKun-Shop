@@ -18,16 +18,20 @@ const Notification = ( msg ) => {
     )
   }
 
-const NotificationContext = createContext()
+export const NotificationContext = createContext()
 
 export const NotificationProvider = ({ children }) => {
     const [message, setMessage] = useState('Mensaje de notificación (o.0)')
+
+    const setNotification = (msg) => {
+      setMessage(msg)
+    }
     
     return (
-        <NotificationContext.Provider>
+        <NotificationContext.Provider value={{ setNotification }}>
             <Notification msg={message}/>
             { children }
         </NotificationContext.Provider>
     )
 }
-export default Notification
+//export default Notification
