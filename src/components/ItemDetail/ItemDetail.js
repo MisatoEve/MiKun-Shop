@@ -5,6 +5,7 @@ import ItemCount from '../ItemCount/ItemCount'
 //import CartContext from '../../context/CartContext'
 //import { CartContext } from '../../App' ►cambiamos la referencia
 import { CartContext } from '../../context/CartContext'
+import { NotificationContext } from '../../notification/Notification'
 
 //const InputCount = ({onConfirm, stock, initial= 1}) => {
 //    const [count, setCount] = useState(initial)
@@ -58,6 +59,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 //    const value = useContext(CartContext)
 //    console.log(value)
     const { addItem } = useContext(CartContext)
+    const { setNotification } = useContext(NotificationContext)
 
 //    console.log(quantityToAdd)
 //    const { addItem, getProductQuantity } = useContext(CartContext)
@@ -70,6 +72,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
             id, name, price, quantity
         }
         addItem(productToAdd)
+        setNotification('success', `Se agregó ${quantity} ${name} correctamente`)
 //        addItem(productToAdd)
 //        setCart(productToAdd)
     }
