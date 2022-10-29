@@ -78,7 +78,7 @@ const products = [
         category: 'teclados', 
         img:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/593/734/products/nkb-413r-full1-1ae4032cb93c6149dd16494462532926-640-0.jpg', 
         stock: 25, 
-        description: '{El NKB-413R es un Gaming Combo de Alto Diseño que te garantiza la mejor performance para tus juegos en PC. Contiene Teclado y Mouse Retroiluminados, Mouse Pad que brinda un óptimo deslizamiento y Auriculares con Micrófono confortablemente acolchados. Con el Gaming Combo NKB-413R tendrás todo lo que necesitas para dominar el juego y disfrutar al máximo. Disponible en color Rojo.'
+        description: 'El NKB-413R es un Gaming Combo de Alto Diseño que te garantiza la mejor performance para tus juegos en PC. Contiene Teclado y Mouse Retroiluminados, Mouse Pad que brinda un óptimo deslizamiento y Auriculares con Micrófono confortablemente acolchados. Con el Gaming Combo NKB-413R tendrás todo lo que necesitas para dominar el juego y disfrutar al máximo. Disponible en color Rojo.'
         }
 ]
 

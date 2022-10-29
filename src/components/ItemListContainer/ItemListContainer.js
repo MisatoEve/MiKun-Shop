@@ -33,10 +33,15 @@ const ItemListContainer = ({ greeting }) => {
 //    }, [])
 
 //    console.log(products)
-
-//    if(loading) {
+// ▼ if temprano corto la ejecución 
+//    if(loading) {        
 //        return <h1>Loading...</h1>
 //    }
+//▼ if con operador ternario para validar RENDERIZADO CONDICIONAL
+    if(loading && true) {        
+        return <h1>Loading...</h1>
+    }
+
 
 //    if(error) {
 //        return <h1>Se ha producido un error</h1>
@@ -46,7 +51,10 @@ const ItemListContainer = ({ greeting }) => {
         <div className="ItemListContainer" onClick={() => console.log('hice click en el ItemListContainer')}>
             {/*<h2>{greeting}</h2>*/}
             <h2>{`${greeting} ${categoryId || ''}`}</h2>
-            <ItemList products={products} />
+            {/* { products.length > 0 ? <ItemList products={products} /> : <h3>No hay productos disponibles</h3> } si la validación pasa ejecutar la función, si no pasa no ejecutar */}
+            {/* ▼ RENDERIZADO CONDICIONAL */}            
+            { products.length > 0 && <ItemList products={products} />}
+
         </div>
     )
 }
