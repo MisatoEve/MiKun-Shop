@@ -6,17 +6,19 @@
 
 //import { setOrder } from "../../../firebase/firebase";
 //import "./Checkout.css";
-import { useContext } from "react"
+import { useState, useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { getDocs, addDoc, collection, doc, updateDoc, where, query, documentId, writeBatch } from 'firebase/firestore'
 import { db } from '../../services/firebase'
 
 
 const Checkout = () => {
+  const [loading, setLoading] = useState(false)
   
-  const { cart, total } = useContext(CartContext)
+  const { cart, total, clearCart } = useContext(CartContext)
  
   const createOrder = async () => {
+    setLoading(true)
     try {
       const objOrder = {
         buyer: {
@@ -64,15 +66,20 @@ const Checkout = () => {
         const orderAdded = await addDoc(orderRef, objOrder)
 
         console.log(`El id de su orden es: ${orderAdded.id}`)
+        clearCart()
       } else {
         console.log('El producto seleccionado está fuera de stock')
       }      
     } catch (error) {
         console.log(error)
+    } finally {
+      setLoading(false)
     }  
   }
 
-
+  if(loading){
+    return <h1>►►► Su orden se está generando ►►►</h1>
+  }
 
   return (
     <>
