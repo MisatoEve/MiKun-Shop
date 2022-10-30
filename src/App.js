@@ -11,7 +11,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Cart from './components/Cart/Cart'
 //import Login from './components/User/login/Login';
 //import Register from './components/User/register/Register';
-//import { Checkout } from './components/Checkout/Checkout';
+import Checkout from './components/Checkout/Checkout';
 import { ErrorPrueba } from './components/ErrorPrueba/ErrorPrueba'
 import Footer from './components/Footer/Footer';
 //import Notification from './notification/Notification'; nos ahorramos de importar esta línea
@@ -35,9 +35,9 @@ function App() {
                 <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Listado filtrado de caterogía:'}/>} />
                 <Route path='/detail/:productId' element={<ItemDetailContainer /*setCart={addItem}*/ />} /> 
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />  
                 {/*<Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/checkout" element={<Checkout />} /> */}  
+                <Route path="/register" element={<Register />} /> */}
                 <Route path='*' element={<ErrorPrueba/>}/>         
               </Routes> 
               <Footer />   

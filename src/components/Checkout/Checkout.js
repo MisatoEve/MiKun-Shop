@@ -1,14 +1,92 @@
-import { useContext, useState } from "react";
-import { Alert, Button, Card, Container, Form } from "react-bootstrap";
-import { CartContext } from "../../context/CartContext";
-import { UserContext } from "../../context/UserContext";
-import { useForm } from "../Form/Form"
-//import { setOrder } from "../../../firebase/firebase";
-import "./Checkout.css";
+//import { useContext, useState } from "react";
+//import { Alert, Button, Card, Container, Form } from "react-bootstrap";
+//import { CartContext } from "../../context/CartContext";
+//import { UserContext } from "../../context/UserContext";
+//import { useForm } from "../Form/Form"
 
-{/* export const Checkout = () => {
-  const { cartList, totals, removeList, validateCart } =
-    useContext(CartContext);
+//import { setOrder } from "../../../firebase/firebase";
+//import "./Checkout.css";
+import { useContext } from "react"
+import { CartContext } from "../../context/CartContext"
+import { getDocs, addDoc, collection, doc, updateDoc, where, query, documentId, writeBatch } from 'firebase/firestore'
+import { db } from '../../services/firebase'
+
+
+const Checkout = () => {
+  
+  const { cart, total } = useContext(CartContext)
+ 
+  const createOrder = async () => {
+    try {
+      const objOrder = {
+        buyer: {
+          name: "",
+          phone: "",
+          email: "",
+          emailValidate: "",
+        },
+        items: cart,
+        total
+      }
+      console.log(objOrder)
+  //    const collectionRef = collection( db, 'orders')
+
+  //    addDoc(collectionRef, objOrder)
+
+      const ids = cart.map(prod => prod.id)
+      const productsRef = collection(db, 'products')
+
+      const productsFirestore = await getDocs(query(productsRef, where(documentId(), 'in', ids))) 
+      const { docs } = productsFirestore
+
+      const batch = writeBatch(db)
+      const outOfStock = []
+
+      docs.forEach(doc => {
+        //▼base de datos actualizada
+        const dataDoc = doc.data()
+        const stockDb = dataDoc.stock
+        //▼lo que el usuario agregó, del cart.  
+        const productCartUser = cart.find(prod => prod.id === doc.id)
+        const prodQuantity = productCartUser?.quantity
+
+        if(stockDb >= prodQuantity) {
+          batch.update(doc.ref, { stock: stockDb - prodQuantity})
+        } else {
+          outOfStock.push({ id: doc.id, ...dataDoc})
+        }
+      })
+
+      if(outOfStock.length === 0) {
+        await batch.commit()    
+        
+        const orderRef = collection(db, 'orders')
+        const orderAdded = await addDoc(orderRef, objOrder)
+
+        console.log(`El id de su orden es: ${orderAdded.id}`)
+      } else {
+        console.log('El producto seleccionado está fuera de stock')
+      }      
+    } catch (error) {
+        console.log(error)
+    }  
+  }
+
+
+
+  return (
+    <>
+      <h1>check</h1>
+      <button onClick={createOrder}>Enviar orden</button>
+    </>
+  )
+
+}
+
+export default Checkout
+
+/*export const Checkout = () => {
+  const { cartList, totals, removeList, validateCart } = useContext(CartContext);
   const { userState } = useContext(UserContext);
   const [orderId, setOrderId] = useState("");
   const { form, handleChange } = useForm({
@@ -140,4 +218,4 @@ import "./Checkout.css";
       </Container>
     </Container>
   );
-}; */}
+};*/
