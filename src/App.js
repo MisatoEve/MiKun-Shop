@@ -14,14 +14,9 @@ import Cart from './components/Cart/Cart'
 import Checkout from './components/Checkout/Checkout';
 import { ErrorPrueba } from './components/ErrorPrueba/ErrorPrueba'
 import Footer from './components/Footer/Footer';
-//import Notification from './notification/Notification'; nos ahorramos de importar esta línea
-//import AvatarJsx from './components/AvatarJsx';
-//import Button from './components/Button/Button'; 
-//import Counter from './components/Counter/Counter';
+
 // ▼ styles
 import './App.css';
-//export const Context = createContext()
-//export const CartContext = createContext()
 function App() {
 
   return (
@@ -37,7 +32,7 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/checkout" element={<Checkout />} />  
                 {/*<Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} /> */}
+                <Route path="/register" element={<Register />} />  */}
                 <Route path='*' element={<ErrorPrueba/>}/>         
               </Routes> 
               <Footer />   

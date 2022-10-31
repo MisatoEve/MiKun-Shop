@@ -1,14 +1,14 @@
-import { createContext } from "react";
-import { useLocalStorage } from "../localStorage/useLocalStorage";
-import { getUser, setUser } from "../firebase/firebase";
-import {
-  getAuth,
-  signOut,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+//import { createContext } from "react";
+//import { useLocalStorage } from "../localStorage/useLocalStorage";
+//import { getUser, setUser } from "../services/firebase/firebase";
+//import {
+//  getAuth,
+//  signOut,
+//  createUserWithEmailAndPassword,
+//  signInWithEmailAndPassword,
+//} from "firebase/auth";
 
-export const UserContext = createContext({});
+{/*export const UserContext = createContext({});
 
 export const UserContextProvider = ({ children }) => {
   const [userState, setUserState] = useLocalStorage("userLogged", null);
@@ -67,4 +67,4 @@ export const UserContextProvider = ({ children }) => {
   };
 
   return <UserContext.Provider value={data}>{children}</UserContext.Provider>;
-};
+}; */}

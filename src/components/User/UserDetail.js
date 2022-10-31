@@ -1,9 +1,9 @@
-import { Card, Button, Table, Container, CardGroup } from "react-bootstrap";
-import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { UserContext } from "../../../context/UserContext";
-//import { getAllOrders } from "../../../firebase/firebase";
-import "./UserDetail.css";
+//import { Card, Button, Table, Container, CardGroup } from "react-bootstrap";
+//import { useContext, useEffect, useState } from "react";
+//import { Link } from "react-router-dom";
+//import { UserContext } from "../../context/UserContext";
+//import { getAllOrders } from "../../services/firebase/firebase";
+//import "./UserDetail.css";
 
 {/*export const UserDetail = () => {
   const { userState, logOut } = useContext(UserContext);

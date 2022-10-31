@@ -1,12 +1,12 @@
-import { Form, Button, Container } from "react-bootstrap";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { useForm } from "../../Form/Form"
-import { UserContext } from "../../../context/UserContext";
-import { UserDetail } from "../UserDetail";
-import "./Login.css";
+//import { Form, Button, Container } from "react-bootstrap";
+//import { useContext } from "react";
+//import { Link } from "react-router-dom";
+//import { useForm } from "../../Form/Form"
+//import { UserContext } from "../../../context/UserContext";
+//import { UserDetail } from "../UserDetail";
+//import "./Login.css";
 
-function Login() {
+{/*function Login() {
   const { userState, signIn } = useContext(UserContext);
   const { form, handleChange } = useForm({
     email: "",
@@ -61,4 +61,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Login; */}
