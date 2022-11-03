@@ -9,6 +9,7 @@
     addDoc,
     serverTimestamp,
   } from "firebase/firestore";
+import { db } from ".";
   
   // Funcion que trae todos los productos
   export const getAllProducts = () => {
@@ -105,3 +106,7 @@
     const userData = query(collection(db, "users"), where("email", "==", email));
     return getDocs(userData);
   }; */}
+
+
+  
+  

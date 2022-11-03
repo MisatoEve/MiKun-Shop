@@ -1,32 +1,25 @@
-import { Form } from "../Form/Form";
 import { useState, useContext } from "react"
 import { CartContext } from "../../context/CartContext"
-import { getDocs, addDoc, collection, doc, updateDoc, where, query, documentId, writeBatch } from 'firebase/firestore'
+import { getDocs, addDoc, collection, where, query, documentId, writeBatch } from 'firebase/firestore'
 import { db } from '../../services/firebase'
-
+//import Notification from "../../notification/Notification";
+import React from "react"
+import Form from '../Form/FormCheck'
+ 
 const Checkout = () => {
   const [loading, setLoading] = useState(false)
   
   const { cart, total, clearCart } = useContext(CartContext)
- 
+
   const createOrder = async (buyer) => {
     setLoading(true)
     try {
-      const objOrder = {
-        buyer, /*{
-          name: "",
-          phone: "",
-          email: "",
-          emailValidate: "",
-        },*/
+        const objOrder = {
+        buyer,
         items: cart,
-        total
-      }
-      console.log(objOrder)
-  //    const collectionRef = collection( db, 'orders')
-
-  //    addDoc(collectionRef, objOrder)
-
+        total     
+      };
+      
       const ids = cart.map(prod => prod.id)
       const productsRef = collection(db, 'products')
 
@@ -56,13 +49,17 @@ const Checkout = () => {
         
         const orderRef = collection(db, 'orders')
         const orderAdded = await addDoc(orderRef, objOrder)
+        alert(`Orden generada con éxito! El id de su orden es: ${orderAdded.id}`)
+        alert(`Nos pondremos en contacto para coordinar. Gracias por su compra ^^`)
 
         console.log(`El id de su orden es: ${orderAdded.id}`)
         clearCart()
       } else {
-        console.log('El producto seleccionado está fuera de stock')
+        alert('error', `el producto esta temporalmente sin stock`)
+        console.log('El producto esta temporalmente sin stock')
       }      
     } catch (error) {
+        alert('error', 'Ha ocurrido un error!')
         console.log(error)
     } finally {
       setLoading(false)
@@ -75,7 +72,7 @@ const Checkout = () => {
 
   return (
     <>
-      <h1>Check</h1> 
+      <h1>Ingrese sus datos</h1> 
       <Form createOrder={createOrder}/>
     </>
   )
